@@ -1,5 +1,6 @@
 from database import db
 
+
 class Contact(db.Model):
     __tablename__ = "contacts"
 
@@ -8,3 +9,12 @@ class Contact(db.Model):
     soyisim = db.Column(db.String(50), nullable=False)
     telefon = db.Column(db.String(20), nullable=False)
     sehir = db.Column(db.String(50), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "isim": self.isim,
+            "soyisim": self.soyisim,
+            "telefon": self.telefon,
+            "sehir": self.sehir
+        }
