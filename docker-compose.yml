@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    container_name: telefon-rehberi-api
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - ./instance:/app/instance
