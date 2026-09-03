@@ -4,8 +4,7 @@ services:
     container_name: telefon-rehberi-api
     ports:
       - "5000:5000"
-    volumes:
-      - ./instance:/app/instance
+
     depends_on:
       postgres:
         condition: service_healthy
