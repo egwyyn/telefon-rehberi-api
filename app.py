@@ -1,3 +1,4 @@
+from prometheus_flask_exporter import PrometheusMetrics
 from flask import Flask
 from dotenv import load_dotenv
 import os
@@ -9,6 +10,7 @@ from routes.contact_routes import contact_bp
 load_dotenv()
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     f"postgresql://{os.getenv('POSTGRES_USER')}:"
